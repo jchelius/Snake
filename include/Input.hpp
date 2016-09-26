@@ -7,15 +7,14 @@
 class Input
 {
 private:
-	SDL_Keycode _keyReleased, _keyPressed;
+	const Uint8* _keys;
 	bool _shouldQuit;
 public:
 	Input();
-	~Input(){ }
+	~Input() { }
 	void update();
 	const bool shouldQuit() const { return _shouldQuit; }
-	const SDL_Keycode getKeyDown() const { return _keyPressed; }
-	const SDL_Keycode getKeyUp() const { return _keyReleased; }
+	const SDL_Keycode isKeyDown(const SDL_Scancode key) const { return _keys[key]; }
 	const int getMousePosX();
 	const int getMousePosY();
 };

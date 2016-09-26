@@ -2,7 +2,7 @@
 #include <SDL2/SDL_image.h>
 
 
-Graphics::Graphics(const int width, const int height, const std::string title):
+Graphics::Graphics(const int width, const int height, const std::string& title):
 	_width(width),
 	_height(height)
 {
@@ -35,7 +35,7 @@ void Graphics::clear()
 	SDL_RenderClear(_renderer);
 }
 
-const SDL_Texture* Graphics::loadTexture(const std::string file)
+const SDL_Texture* Graphics::loadTexture(const std::string& file)
 {
 	if(_textures.find(file) == _textures.end())
 	{
@@ -46,12 +46,12 @@ const SDL_Texture* Graphics::loadTexture(const std::string file)
 	return _textures[file];
 }
 
-void Graphics::drawTexture(SDL_Texture* texture, const SDL_Rect src, const SDL_Rect dst, const double angle)
+void Graphics::drawTexture(SDL_Texture* texture, const SDL_Rect& src, const SDL_Rect& dst, const double angle)
 {
 	SDL_RenderCopyEx(_renderer, texture, &src, &dst, angle, NULL, SDL_FLIP_NONE);
 }
 
-void Graphics::drawTexture(SDL_Texture* texture, const SDL_Rect dst, const double angle)
+void Graphics::drawTexture(SDL_Texture* texture, const SDL_Rect& dst, const double angle)
 {
 	SDL_RenderCopyEx(_renderer, texture, NULL, &dst, angle, NULL, SDL_FLIP_NONE);
 }
@@ -71,7 +71,7 @@ void Graphics::drawLine(const int x1, const int y1, const int x2, const int y2)
 	SDL_RenderDrawLine(_renderer, x1, y1, x2, y2);
 }
 
-void Graphics::drawFilledRect(const SDL_Rect rect)
+void Graphics::drawFilledRect(const SDL_Rect& rect)
 {
 	SDL_RenderFillRect(_renderer, &rect);
 }

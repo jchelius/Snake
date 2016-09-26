@@ -83,7 +83,7 @@ void Snake::update()
 void Snake::render()
 {
 	_graphics->setDrawColor(0, 255, 0);
-	for(int i = 0; i < _blocks.size(); i++)
+	for(size_t i = 0; i < _blocks.size(); i++)
 	{
 		SDL_Rect rect = {_blocks[i].first, _blocks[i].second, BLOCK_WIDTH, BLOCK_HEIGHT};
 		_graphics->drawFilledRect(rect);

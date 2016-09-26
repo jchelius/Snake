@@ -1,32 +1,20 @@
 #include "../include/Input.hpp"
 
 
-Input::Input():
-	_keyReleased(-1),
-	_keyPressed(-1),
+Input::Input() :
 	_shouldQuit(false)
 {
-
+	_keys = SDL_GetKeyboardState(NULL);
 }
 
 void Input::update()
 {
 	SDL_Event e;
-	_keyReleased = -1;
 	while (SDL_PollEvent(&e) != 0)
 	{
-		switch(e.type)
+		if (e.type == SDL_QUIT)
 		{
-			case SDL_KEYDOWN:
-				_keyPressed = e.key.keysym.sym;
-				break;
-			case SDL_KEYUP:
-				_keyReleased = e.key.keysym.sym;
-				_keyPressed = -1;
-				break;
-			case SDL_QUIT:
-				_shouldQuit = true;
-				break;
+			_shouldQuit = true;
 		}
 	}
 }

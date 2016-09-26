@@ -26,19 +26,19 @@ void Game::update()
 	{
 		reset();
 	}
-	if ((_input->getKeyDown() == SDLK_UP || _input->getKeyDown() == SDLK_w) && _snake.getDir() != DOWN)
+	if ((_input->isKeyDown(SDL_SCANCODE_UP) || _input->isKeyDown(SDL_SCANCODE_W)) && _snake.getDir() != DOWN)
 	{
 		_snake.setDir(UP);
 	}
-	if ((_input->getKeyDown() == SDLK_DOWN || _input->getKeyDown() == SDLK_s) && _snake.getDir() != UP)
+	if ((_input->isKeyDown(SDL_SCANCODE_DOWN) || _input->isKeyDown(SDL_SCANCODE_S)) && _snake.getDir() != UP)
 	{
 		_snake.setDir(DOWN);
 	}
-	if ((_input->getKeyDown() == SDLK_RIGHT || _input->getKeyDown() == SDLK_d) && _snake.getDir() != LEFT)
+	if ((_input->isKeyDown(SDL_SCANCODE_RIGHT) || _input->isKeyDown(SDL_SCANCODE_D)) && _snake.getDir() != LEFT)
 	{
 		_snake.setDir(RIGHT);
 	}
-	if ((_input->getKeyDown() == SDLK_LEFT || _input->getKeyDown() == SDLK_a) && _snake.getDir() != RIGHT)
+	if ((_input->isKeyDown(SDL_SCANCODE_LEFT) || _input->isKeyDown(SDL_SCANCODE_A)) && _snake.getDir() != RIGHT)
 	{
 		_snake.setDir(LEFT);
 	}
