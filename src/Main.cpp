@@ -20,6 +20,7 @@ int main(int, char**)
 		graphics->update();
 		input->update();
 	}
+	delete input;
 	delete graphics;
 	return 0;
 }
