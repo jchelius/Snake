@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "../include/Graphics.hpp"
-#include "../include/Apple.hpp"
+#include "Graphics.hpp"
+#include "Apple.hpp"
 
 
 enum Direction
@@ -20,7 +20,6 @@ class Snake
 {
 private:
 	std::vector<std::pair<int, int>> _blocks;
-	//int _x,  _y;
 	const int _START_POS_X, _START_POS_Y, _OFFSET;
 	Graphics* _graphics;
 	int _xDir, _yDir;

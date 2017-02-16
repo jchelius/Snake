@@ -1,7 +1,7 @@
 #ifndef APPLE_H
 #define APPLE_H
 
-#include "../include/Graphics.hpp"
+#include "Graphics.hpp"
 
 
 class Apple
