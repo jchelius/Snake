@@ -20,10 +20,11 @@ class Snake
 {
 private:
 	std::vector<std::pair<int, int>> _blocks;
-	const int _START_POS_X, _START_POS_Y, _OFFSET;
+	const int _START_POS_X, _START_POS_Y, _OFFSET, _MOVE_DELAY;
 	Graphics* _graphics;
 	int _xDir, _yDir;
 	Direction _dir;
+	Uint32 _nextTime;
 public:
 	static const int BLOCK_WIDTH, BLOCK_HEIGHT;
 public:

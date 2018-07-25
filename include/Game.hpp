@@ -13,9 +13,6 @@ private:
 	Input* _input;
 	Snake _snake;
 	Apple _apple;
-	const int _FPS;
-	const int _MPF;
-	int _startTime;
 	bool _paused;
 private:
 	void reset();

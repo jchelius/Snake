@@ -6,16 +6,13 @@ Game::Game(Graphics* graphics, Input* input):
 	_graphics(graphics),
 	_input(input),
 	_snake(graphics),
-	_apple(graphics),
-	_FPS(17),
-	_MPF(1000 / _FPS)
+	_apple(graphics)
 {
 	
 }
 
 void Game::update()
 {
-	const int startTime = SDL_GetTicks() - _startTime;
 	_snake.update();
 	if (_snake.collides(_apple))
 	{
@@ -41,11 +38,6 @@ void Game::update()
 	if ((_input->isKeyDown(SDL_SCANCODE_LEFT) || _input->isKeyDown(SDL_SCANCODE_A)) && _snake.getDir() != RIGHT)
 	{
 		_snake.setDir(LEFT);
-	}
-	const int diff = (SDL_GetTicks() - _startTime) - startTime;
-	if(diff < _MPF)
-	{
-		SDL_Delay(_MPF - diff);
 	}
 }
 

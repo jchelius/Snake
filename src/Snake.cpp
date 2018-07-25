@@ -9,7 +9,9 @@ Snake::Snake(Graphics* graphics):
 	_START_POS_X(graphics->getWidth() / (2 * BLOCK_WIDTH) * BLOCK_WIDTH),
 	_START_POS_Y(graphics->getHeight() / (2 * BLOCK_HEIGHT) * BLOCK_HEIGHT),
 	_OFFSET(0),
-	_graphics(graphics)
+	_MOVE_DELAY(100),
+	_graphics(graphics),
+	_nextTime(0)
 {
 	reset();
 }
@@ -77,7 +79,11 @@ void Snake::setDir(const Direction dir)
 
 void Snake::update()
 {
-	move();
+	if(SDL_GetTicks() > _nextTime)
+	{
+		move();
+		_nextTime += _MOVE_DELAY;
+	}
 }
 
 void Snake::render()
