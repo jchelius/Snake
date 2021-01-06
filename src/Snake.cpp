@@ -9,9 +9,7 @@ Snake::Snake(Graphics* graphics):
 	_START_POS_X(graphics->getWidth() / (2 * BLOCK_WIDTH) * BLOCK_WIDTH),
 	_START_POS_Y(graphics->getHeight() / (2 * BLOCK_HEIGHT) * BLOCK_HEIGHT),
 	_OFFSET(0),
-	_MOVE_DELAY(100),
-	_graphics(graphics),
-	_nextTime(0)
+	_graphics(graphics)
 {
 	reset();
 }
@@ -54,23 +52,23 @@ void Snake::setDir(const Direction dir)
 	_dir = dir;
 	switch(dir)
 	{
-		case UP:
+		case Direction::UP:
 			_xDir = 0;
 			_yDir = -1;
 			break;
-		case DOWN:
+		case Direction::DOWN:
 			_xDir = 0;
 			_yDir = 1;
 			break;
-		case LEFT:
+		case Direction::LEFT:
 			_xDir = -1;
 			_yDir = 0;
 			break;
-		case RIGHT:
+		case Direction::RIGHT:
 			_xDir = 1;
 			_yDir = 0;
 			break;
-		case NONE:
+		case Direction::NONE:
 			_xDir = 0;
 			_yDir = 0;
 			break;
@@ -79,11 +77,7 @@ void Snake::setDir(const Direction dir)
 
 void Snake::update()
 {
-	if(SDL_GetTicks() > _nextTime)
-	{
-		move();
-		_nextTime += _MOVE_DELAY;
-	}
+	move();
 }
 
 void Snake::render()
@@ -131,6 +125,6 @@ const bool Snake::offScreen() const
 void Snake::reset()
 {
 	_blocks.clear();
-	setDir(NONE);
+	setDir(Direction::NONE);
 	grow(5);
 }

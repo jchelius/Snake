@@ -15,12 +15,12 @@ int main(int, char**)
 	while(!input->shouldQuit())
 	{
 		graphics->clear();
+		game.updateInput();
 		game.update();
 		game.render();
 		graphics->update();
 		input->update();
 	}
-	delete input;
 	delete graphics;
 	return 0;
 }

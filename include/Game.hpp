@@ -9,19 +9,19 @@
 class Game
 {
 private:
-	Graphics* _graphics;
 	Input* _input;
+	Graphics* _graphics;
 	Snake _snake;
 	Apple _apple;
-	bool _paused;
+	const int _FPS;
+	const int _MPF;
 private:
 	void reset();
-	void pause();
-	void resume();
 public:
 	Game(Graphics* graphics, Input* input);
 	~Game(){ }
 	void update();
+	void updateInput();
 	void render();
 };
 

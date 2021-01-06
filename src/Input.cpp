@@ -12,7 +12,7 @@ void Input::update()
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0)
 	{
-		if (e.type == SDL_QUIT)
+		if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
 		{
 			_shouldQuit = true;
 		}
